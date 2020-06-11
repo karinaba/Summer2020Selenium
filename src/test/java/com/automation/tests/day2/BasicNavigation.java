@@ -8,7 +8,16 @@ public class BasicNavigation {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://google.com");
+        String title = driver.getTitle();
+        System.out.println(title);
         Thread.sleep(3000);
+        String expecTitle = "Google";
+        if(expecTitle.equals(title)){
+            System.out.println("Test Passed!");
+        }else{
+            System.out.println("Test FAILED!");
+        }
         driver.close();
+        driver.quit();
     }
 }
