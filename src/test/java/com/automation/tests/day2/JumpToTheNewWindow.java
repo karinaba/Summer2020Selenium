@@ -36,7 +36,7 @@ public class JumpToTheNewWindow {
      */
     public static void switchToWindowBasedOnTitle(String pageTitle, WebDriver driver){
         Set<String> windows = driver.getWindowHandles();
-        for(String window; windows){
+        for(String window: windows){
             driver.switchTo().window(window);
             if(driver.getTitle().equals(pageTitle)){
                 break;

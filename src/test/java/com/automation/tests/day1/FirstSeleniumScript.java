@@ -5,9 +5,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class FirstSeleniumScript {
     public static void main(String[]args){
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
-        driver.get("http://google.com");
+       String st1 = "SNP HARP Eligible Tier 2 HCBS (H4 with H6)";
+       String st2 = "SNP HARP Eligible (H4)";
+       if(st1.contains(st2)){
+           System.out.println("contains");
+       }else{
+           System.out.println("doesn't contain");
+       }
     }
 
 }
