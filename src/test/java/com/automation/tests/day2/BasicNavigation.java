@@ -8,6 +8,7 @@ public class BasicNavigation {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://google.com");
+        driver.manage().window().maximize();
         String title = driver.getTitle();
         System.out.println(title);
         Thread.sleep(3000);
@@ -17,7 +18,22 @@ public class BasicNavigation {
         }else{
             System.out.println("Test FAILED!");
         }
+        driver.navigate().to("http://amazon.com");
+        if(driver.getTitle().toLowerCase().contains("amazon")){
+            System.out.println("Test Passed!");
+        }else{
+            System.out.println("Test FAILED!");
+        }
+        driver.navigate().back();
+        verifyEquals(driver.getTitle(), "Google");
         driver.close();
         driver.quit();
+    }
+    public static void verifyEquals(String st1, String st2){
+        if(st1.equals(st2)){
+            System.out.println("Test Passed");
+        }else{
+            System.out.println("Test FAILED!");
+        }
     }
 }
