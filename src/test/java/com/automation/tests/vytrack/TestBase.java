@@ -13,7 +13,7 @@ public abstract class TestBase {
     protected Actions actions;
     @BeforeMethod
     public void setUp(){
-        String URL = ConfigurationReader.getProperty("url")
+        String URL = ConfigurationReader.getProperty("url");
         Driver.getDriver().get(URL);
         Driver.getDriver().manage().window().maximize();
         wait = new WebDriverWait(Driver.getDriver(), 15);
