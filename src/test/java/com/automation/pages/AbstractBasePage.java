@@ -46,6 +46,6 @@ public abstract class AbstractBasePage {
                 pause(2000).
                 click(moduleElement).
                 build().perform();
-        BrowserUtils.wait(4);
+        BrowserUtils.wait(5);
     }
 }
