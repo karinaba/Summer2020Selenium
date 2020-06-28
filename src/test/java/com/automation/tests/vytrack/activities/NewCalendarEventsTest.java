@@ -9,6 +9,9 @@ import com.automation.utilities.DateTimeUtilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class NewCalendarEventsTest extends TestBase {
     LoginPage loginPage = new LoginPage();
     CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
@@ -38,5 +41,12 @@ public class NewCalendarEventsTest extends TestBase {
         String format ="h:mm a";
         long actual = DateTimeUtilities.getTimeDifference(startTime,endTime,format);
         Assert.assertEquals(actual,1,"Time difference should equal to one hour");
+    }
+    @Test
+    public void VerifyColumnNames(){
+        loginPage.login();
+        calendarEventsPage.navigateTo("Activities", "Calendar Events");
+       List<String> expected = Arrays.asList("Title", "Calendar","Start","End", "Recurrent", "Recurrence", "Invitation Status");
+        Assert.assertEquals(calendarEventsPage.getColumnNames(), expected);
     }
 }

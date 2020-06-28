@@ -16,7 +16,7 @@ public class LoginPage {
     @FindBy(id="prependedInput2")
     private WebElement password;
 
-    @FindBy(css="alert alert-error")
+    @FindBy(xpath="//div[@class='alert alert-error']")
     private WebElement warningMessage;
 
 
